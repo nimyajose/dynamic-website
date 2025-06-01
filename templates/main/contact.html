@@ -1,0 +1,41 @@
+
+{% extends 'main/base.html' %}
+{% block title %}Contact | Pulari Australia{% endblock %}
+{% load static %}
+
+{% block content %}
+    <section class="contact-us py-5 bg-light">
+        <div class="container">
+            <h1 class="text-center mb-4 section-title">Contact Us</h1>
+            <div class="row justify-content-center align-items-center">
+                <!-- Left Column: Contact Form -->
+                <div class="col-md-6 col-lg-5">
+                    <form method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="name" class="form-label">Name</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            {{ form.message }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Images (Map or Location) -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="image-section">
+                        <h4 class="text-center mb-3">Visit Us</h4>
+                        <img src="{% static 'images/about.png' %}" alt="Location Map" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
